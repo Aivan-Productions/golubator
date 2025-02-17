@@ -1,7 +1,7 @@
 services:
   back:
-    container_name: dev-golubator-back
     build: ./back
+    container_name: golubator-back
     ports:
       - "8000:8000"
     logging:
@@ -9,21 +9,18 @@ services:
     restart: always
 
   front:
-    container_name: dev-golubator-front
     build:
-      context: .
-      dockerfile: dev/Dockerfile.front
-    volumes:
-      - ./front:/app
+      dockerfile: prod/Dockerfile.front
+    container_name: golubator-front
     ports:
-      - "4173:4173"
+      - "4173:80"
     logging:
       driver: journald
     restart: always
 
   mongo:
-    container_name: dev-golub-mongodb
     image: mongo:8.0-rc
+    container_name: golub-mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
