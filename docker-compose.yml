@@ -1,7 +1,11 @@
 services:
   back:
     container_name: dev-golubator-back
-    build: ./back
+    build: 
+      context: .
+      dockerfile: dev/Dockerfile.back
+    volumes:
+      - ./back:/app:ro
     ports:
       - "8000:8000"
     logging:
