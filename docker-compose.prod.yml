@@ -1,6 +1,8 @@
 services:
   back:
-    build: ./back
+    build: 
+      context: .
+      dockerfile: prod/Dockerfile.back
     container_name: golubator-back
     ports:
       - "8000:8000"
