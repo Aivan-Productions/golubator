@@ -1,6 +1,9 @@
 [submodule "back"]
 	path = back
 	url = git@github.com:Aivan-Productions/golubator-back.git
+  branch = main
+
 [submodule "front"]
 	path = front
 	url = git@github.com:Aivan-Productions/golubator-front.git
+  branch = main
