@@ -8,7 +8,7 @@ services:
       - "8000:8000"
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
 
   front:
     build:
@@ -18,7 +18,7 @@ services:
       - "4173:80"
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
 
   mongo:
     image: mongo:8.0-rc
@@ -32,7 +32,7 @@ services:
       - golub-mongodb:/data/db
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
 
 volumes:
   golub-mongodb:
