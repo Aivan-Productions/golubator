@@ -10,7 +10,7 @@ services:
       - ./back:/app:ro
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
     networks:
       golubnet:
         aliases:
@@ -27,7 +27,7 @@ services:
       - "4173:4173"
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
     networks:
       - golubnet
 
@@ -43,7 +43,7 @@ services:
       - golub-mongodb:/data/db
     logging:
       driver: journald
-    restart: always
+    restart: unless-stopped
     networks:
       - golubnet
 
